@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import ColorfulMessage from "./components/ColorfulMessage";
 
 const App = () => {
-  const onClickButton = () => alert();
+  const onClickCountUp = () => {
+    // numに対してsetNumがどのように変化するのか()内で指示できる
+    setNum(num + 1);
+  };
+
+  // num:なんでもOK　setNum:numに対して動的に変化する値
+  const [num, setNum] = useState(0);
 
   return (
     <>
@@ -10,7 +16,8 @@ const App = () => {
       <ColorfulMessage color="blue">お元気ですか？</ColorfulMessage>
       <ColorfulMessage color="pink">元気です！</ColorfulMessage>
       {/* <ColorfulMessage color="pink" message="元気です!" /> */}
-      <button onClick={onClickButton}>ボタン</button>
+      <button onClick={onClickCountUp}>カウントアップ</button>
+      <p>{num}</p>
     </>
   );
 };
